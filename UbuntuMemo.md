@@ -12,11 +12,14 @@ sudo sed -i -e 's/jp.archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu
 
 ## VMWare Tools
 - 共通
-VMのディスプレイ設定を指定からホストの設定を使用に変更しておく。（VM起動中は変更不可）
+VMのディスプレイ設定を指定からホストの設定を使用に変更しておく。（VM起動中は変更不可）  
+使うツールを変更する場合はインストール済みの方をアンインストールしておくこと。
 - open-vm-tools  
 VMWare ToolsよりはOpen VM Toolsを使うといいらしい？VMWareToolsよりは導入が楽。  
 ```
+# インストール
 sudo apt install open-vm-tools open-vm-tools-desktop
+# アンインストールはapt remove
 ```
 - VMWare Tools  
 VMWare謹製
@@ -34,4 +37,6 @@ cd /tmp/vmware-tools-distrib
 ./vmware-install.pl -d
 # 再起動
 sudo reboot
+# アンインストール方法(コマンドがインストール済み)
+vmware-uninstall-tools.pl
 ```
