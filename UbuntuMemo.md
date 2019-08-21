@@ -11,13 +11,13 @@ sudo sed -i -e 's/jp.archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu
 ```
 
 ## VMWare Tools
-- open-vm-tools
+- open-vm-tools  
 VMWare ToolsよりはOpen VM Toolsを使うといいらしい？VMWareToolsよりは導入が楽。  
 なんか動作が不安定な気もする。
 ```
 sudo apt install open-vm-tools open-vm-tools-desktop
 ```
-- VMWare Tools
+- VMWare Tools  
 VMWare謹製
 ```
 # マウントポイント作成
