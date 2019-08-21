@@ -11,9 +11,10 @@ sudo sed -i -e 's/jp.archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu
 ```
 
 ## VMWare Tools
+- 共通
+VMのディスプレイ設定を指定からホストの設定を使用に変更しておく。（VM起動中は変更不可）
 - open-vm-tools  
 VMWare ToolsよりはOpen VM Toolsを使うといいらしい？VMWareToolsよりは導入が楽。  
-なんか動作が不安定な気もする。
 ```
 sudo apt install open-vm-tools open-vm-tools-desktop
 ```
@@ -26,7 +27,8 @@ sudo mkdir /mnt/cdrom
 sudo mount /dev/cdrom /mnt/cdrom
 ls /mnt/cdrom
 # tarの展開
-tar xzvf /mnt/cdrom/VMwareTools-x.x.x-xxxx.tar.gz -C /tmp/
+cp /mnt/cdrom/VMwareTools-x.x.x-xxxx.tar.gz /tmp
+tar xzvf /tmp/VMwareTools-x.x.x-xxxx.tar.gz -C /tmp/
 cd /tmp/vmware-tools-distrib
 # インストール
 ./vmware-install.pl -d
