@@ -76,3 +76,35 @@ $ sudo gpasswd -a $USER docker
 $ sudo systemctl restart docker
 $ reboot
 ```
+
+## Drupalのインストール
+DockerでUbuntuコンテナを使った際の手順なのでネイティブとは若干違う
+- 事前準備
+```
+$ apt install -y unzip wget php
+```
+- Apacheの導入
+```
+# インストール
+$ apt install apache2
+# バージョン確認
+$ /etc/init.d/apache2 status
+$ vi /etc/apache2/apache2.conf
+# 下記設定値を記入
+# <Directory "/var/www/html/drupal">
+#   AllowOverride All
+# </Directory>
+$ /etc/init.d/apache2 restart
+```
+- Drupalの導入
+```
+$ cd /var/www/html
+$ wget https://ftp.drupal.org/files/projects/drupal-8.x.x.zip
+$ uzip drupal-8.x.x.zip
+$ mv drupal-8.x.x drupal
+$ chown -R www-data drupal
+$ mkdir /var/www/html/drupal/sites/default/files
+$ chmod a+w drupal/sites/default/files
+$ cp drupal/sites/default/default.settings.php drupal/sites/default/settings.php
+$ chmod 666 drupal/sites/default/settings.php
+```
